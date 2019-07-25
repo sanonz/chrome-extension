@@ -1,0 +1,46 @@
+{
+  "name": "Chrome Extensions",
+  "version": "1.0.0",
+  "description": "Chrome extensions scoffold.",
+  "manifest_version": 2,
+
+  "icons": {
+    "16": "assets/images/logo16.disabled.png",
+    "32": "assets/images/logo32.disabled.png",
+    "48": "assets/images/logo48.disabled.png",
+    "128": "assets/images/logo128.disabled.png"
+  },
+
+  "web_accessible_resources": [
+    "assets/js/inject.js"
+  ],
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.sanonz.github.io/*"
+  ],
+
+  "browser_action": {
+    "default_title": "Chrome Extensions",
+    "default_popup": "disabled.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.sanonz.github.io/*"
+      ],
+      "js": [
+        "assets/js/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "scripts": ["assets/js/background.js"]
+  },
+
+  "homepage_url": "https://sanonz.github.com"
+}
